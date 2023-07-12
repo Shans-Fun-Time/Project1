@@ -17,8 +17,14 @@ public class GroceryController {
         List<Groceries> listGroceries = grocery.listEveryThing();
         model.addAttribute("listGroceries", listGroceries);
         return "GroceryList";
-
     }
+
+    @GetMapping("/groceries/new") // link in GroceryList.html
+    public String addGrocery(Model model){
+        model.addAttribute("groceries", new Groceries());
+        return "AddingGroceries";
+    }
+
 }
 
 
