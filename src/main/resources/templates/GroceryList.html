@@ -9,6 +9,9 @@
 <body>
 <div class="container-fluid text-center">
   <div><h2>Shan's Grocery List</h2></div>
+  <div class="m-2">
+    <a class="h3" th:href="@{/groceries/new}">Add to List</a>
+  </div>
   <div>
     <table class="table table-bordered">
       <thead class="thead-light">
@@ -23,9 +26,17 @@
       </thead>
       <tbody>
       <!-- grocery list items here -->
-      <th:block th:each="user : ${listGroceries}"> <!-- user is a variable name for the list -->
+      <th:block th:each="groceries : ${listGroceries}"> <!-- groceries is a variable name for the list (list in grocery controller) -->
         <tr>
-          <td>[[${user.id}]]</td>
+          <td>[[${groceries.id}]]</td>
+          <td>[[${groceries.product}]]</td>
+          <td>[[${groceries.price}]]</td>
+          <td>[[${groceries.store}]]</td>
+          <td>[[${groceries.bought}]]</td>
+          <td>
+            <a class="h4 mr-3" th:href="@{'/groceries/edit/' + ${groceries.id}}">Edit</a>
+            <a class="h4" th:href="@{'/groceries/delete/' + ${groceries.id}}">Delete</a>
+          </td>
         </tr>
 
 
@@ -34,7 +45,7 @@
       </tbody>
     </table>
   </div>
-<!--  <a class="h2" th:href="@{/GroceryList/manage-users}">Manage Users</a>-->
+<!--  <a class="h2" th:href="@{/GroceryService/manage-users}">Manage Users</a>-->
 </div>
 </body>
 </html>

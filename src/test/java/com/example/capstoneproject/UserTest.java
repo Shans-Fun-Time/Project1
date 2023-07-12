@@ -1,7 +1,7 @@
 package com.example.capstoneproject;
 
 import com.example.capstoneproject.user.User;
-import com.example.capstoneproject.user.UserProfiles;
+import com.example.capstoneproject.user.UserRepository;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,14 +26,14 @@ import java.util.Optional;
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(value = false)
 public class UserTest {
-    @Autowired private UserProfiles profiles;
+    @Autowired private UserRepository profiles;
     @Test
     public void testAddNewUser(){
         User user = new User();
-        user.setEmail("agg3212@no.com");
-        user.setPassword("urysh8");
-        user.setFirstName("thalib");
-        user.setLastName("booo");
+        user.setEmail("agg3212@lalaland.gov");
+        user.setPassword("justyou");
+        user.setFirstName("koiemd");
+        user.setLastName("kosls");
 
         User user1 = profiles.save(user);
         Assertions.assertNotNull(user1);

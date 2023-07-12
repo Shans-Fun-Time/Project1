@@ -9,14 +9,13 @@ import java.util.List;
 
 @Controller
 public class UserController {
-    @Autowired private GroceryList grocery;
+    @Autowired private UserService user;
 
-//    @GetMapping("/users")
-    @GetMapping("/GroceryList.html")
-    public String showGroceryList(Model model){
-        List<User> listGroceries = grocery.listEveryThing();
-        model.addAttribute("listGroceries",listGroceries);
-        return "GroceryList";
+    @GetMapping("/users.html")
+    public String showUserList(Model model){
+        List<User> listUsers = user.listEveryThing();
+        model.addAttribute("listusers",listUsers);
+        return "userList";
 
     }
 }
