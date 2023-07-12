@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Grocery List</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+
+</head>
+<body>
+<div class="container-fluid text-center">
+  <div><h2>Shan's Grocery List</h2></div>
+  <div>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+      <tr>
+        <th>ID</th>
+        <th>Product</th>
+        <th>Price</th>
+        <th>Store</th>
+        <th>Bought</th>
+        <th>Edit Or Delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!-- grocery list items here -->
+      <th:block th:each="user : ${listGroceries}"> <!-- user is a variable name for the list -->
+        <tr>
+          <td>[[${user.id}]]</td>
+        </tr>
+
+
+
+      </th:block>
+      </tbody>
+    </table>
+  </div>
+<!--  <a class="h2" th:href="@{/GroceryList/manage-users}">Manage Users</a>-->
+</div>
+</body>
+</html>
